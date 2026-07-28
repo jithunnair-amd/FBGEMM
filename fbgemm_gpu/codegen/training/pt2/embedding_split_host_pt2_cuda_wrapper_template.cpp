@@ -23,6 +23,7 @@
 // optimizers (has_gpu_support=False) render this file empty except for this line;
 // it keeps those TUs byte-distinct so a path-insensitive compiler cache cannot
 // dedup them to one object (which on HIP yields duplicate __hip_cuid symbols).
+static_assert(sizeof("{{ optimizer }}{{ "_ssd" if ssd else "_split" }}") > 0, "fbgemm TU marker");
 {%- endif %}
 {%- if has_gpu_support %}
 ////////////////////////////////////////////////////////////////////////////////

@@ -23,6 +23,7 @@
 // without CPU support render this file empty except for this line; it keeps those
 // TUs byte-distinct so a path-insensitive compiler cache cannot dedup them to a
 // single object.
+static_assert(sizeof("{{ optimizer }}{{ "_ssd" if ssd else "_split" }}") > 0, "fbgemm TU marker");
 {%- endif %}
 {%- if has_cpu_support %}
 ////////////////////////////////////////////////////////////////////////////////
